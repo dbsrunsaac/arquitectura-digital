@@ -15,6 +15,9 @@ namespace AppCalculadora
     {
         CSuma sum1 = new CSuma(2, 1);
         CResta rest1 = new CResta(12, 12);
+        CProducto prod1 = new CProducto(1, 1);
+        CDivision div1 = new CDivision(1, 1);
+
         public frmCalculadora()
         {
             InitializeComponent();
@@ -27,7 +30,9 @@ namespace AppCalculadora
 
         private void btnProducto_Click(object sender, EventArgs e)
         {
-
+            prod1.operando1 = double.Parse(txtOperando1.Text);
+            prod1.operando2 = double.Parse(txtOperando2.Text);
+            txtResultado.Text = prod1.operarNumeros().ToString();
         }
 
         private void btnRestar_Click(object sender, EventArgs e)
@@ -39,7 +44,19 @@ namespace AppCalculadora
 
         private void btnDivision_Click(object sender, EventArgs e)
         {
-
+            double oper2 = double.Parse(txtOperando2.Text);
+            div1.operando1 = double.Parse(txtOperando1.Text);
+            div1.operando2 = oper2;
+            if ( oper2 != 0)
+            {
+                txtResultado.Text = div1.operarNumeros().ToString();
+            }
+            else
+            {
+                txtResultado.Text = div1.mensaje;
+                txtResultado.ForeColor = Color.Red;
+            }
+            
         }
 
         private void btnSumar_Click(object sender, EventArgs e)
