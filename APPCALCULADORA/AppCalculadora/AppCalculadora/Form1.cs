@@ -30,32 +30,16 @@ namespace AppCalculadora
 
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            prod1.operando1 = double.Parse(txtOperando1.Text);
-            prod1.operando2 = double.Parse(txtOperando2.Text);
-            txtResultado.Text = prod1.operarNumeros().ToString();
+
         }
 
         private void btnRestar_Click(object sender, EventArgs e)
         {
-            rest1.operando1 = double.Parse(txtOperando1.Text);
-            rest1.operando2 = double.Parse(txtOperando2.Text);
-            txtResultado.Text = rest1.operarNumeros().ToString();
+  
         }
 
         private void btnDivision_Click(object sender, EventArgs e)
         {
-            double oper2 = double.Parse(txtOperando2.Text);
-            div1.operando1 = double.Parse(txtOperando1.Text);
-            div1.operando2 = oper2;
-            if ( oper2 != 0)
-            {
-                txtResultado.Text = div1.operarNumeros().ToString();
-            }
-            else
-            {
-                txtResultado.Text = div1.mensaje;
-                txtResultado.ForeColor = Color.Red;
-            }
             
         }
 
@@ -66,11 +50,13 @@ namespace AppCalculadora
 
         private void btnSumar_Click_1(object sender, EventArgs e)
         {
-            sum1.operando1 = double.Parse(txtOperando1.Text);
-            sum1.operando2 = double.Parse(txtOperando2.Text);
-            txtResultado.Text = sum1.operarNumeros().ToString();
+   
         }
 
+        private void frmCalculadora_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
