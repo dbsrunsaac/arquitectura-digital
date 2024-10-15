@@ -85,6 +85,12 @@ namespace AppTokens
 
                             state = 2;  // Transición al estado 2 (asignaciones)
                         }
+                        else if (c == ';')
+                        {
+                            // ´Si el estado es ';' finaliza una instrucción
+
+                            state = 3; // Transición al estado 3 (Finalizar operaciones)
+                        }
                         else if (char.IsWhiteSpace(c))
                         {
                             // Ignorar los espacios en blanco
@@ -131,6 +137,17 @@ namespace AppTokens
                             Tokenize(c.ToString());  // Procesar el carácter actual en el estado 0
                         }
                         break;
+                    case 3:
+                        // Agregar el token de finalización de instrucción
+                        Console.WriteLine("Agregando el nuevo estado");
+                        aTokens.Add(new Token("Fz", ";"));
+                        state = 0;
+
+                        if (!char.IsWhiteSpace(c))
+                        {
+                            Tokenize(c.ToString());  // Procesar el carácter actual en el estado 0
+                        }
+                        break;
                 }
             }
 
@@ -172,7 +189,7 @@ namespace AppTokens
             Lexer lexer = new Lexer();
 
             // La expresión a tokenizar
-            string expression = "Suma = a + b - c";
+            string expression = "Suma = a + b - c ;";
 
             // Tokenizar la expresión
             lexer.Tokenize(expression);
@@ -186,6 +203,8 @@ namespace AppTokens
 
             // Mensaje para indicar que los tokens fueron guardados
             Console.WriteLine($"\nTokens guardados en el archivo: {filePath}");
+
+            Console.ReadKey();
         }
     }
 }
