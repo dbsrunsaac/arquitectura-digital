@@ -140,3 +140,11 @@ $RECYCLE.BIN/
 *.BLOB
 *.DS_Store
 
+# TEXSTUDIO
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+*.pdf
