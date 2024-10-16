@@ -1,0 +1,77 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{graphics} % for pdf, bitmapped graphics files
+\usepackage{subfig}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{academicons}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+% Gráficas en MATLAB
+\usepackage{tikz, pgfplots}
+% Color Enlace
+\definecolor{colorEnlace}{RGB}{0, 0, 0}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=colorEnlace,
+	citecolor=colorEnlace,
+	urlcolor=colorEnlace,
+	pdfauthor={Ruth Juana Espino Puma},
+	pdftitle={Introducción a LaTeX}
+}
+% Control 
+\usepackage{amsmath}
+\begin{document}
+	
+	\title{Generador Léxico - Tokenizador}
+	\author{	
+		\IEEEauthorblockN{Davis Bremdow Salazar Roa}
+		\IEEEauthorblockA{Universidad Nacional de San Antonio Abad del Cusco}
+		\textit{Escuela Profesional de Ingeniería Electrónica}\\
+		\textit{Arquitectura de Microcontroladores y Microprocesadores}\\
+		200353 \\\\
+		Cusco, Perú
+	}
+	
+	\maketitle
+	
+	\begin{abstract}
+	\end{abstract}
+	
+	\begin{IEEEkeywords}
+		Compilador, Generador de Léxico, Generador Sintáctico, Generador Sintáctico
+	\end{IEEEkeywords}
+	
+	\section{Introducción}
+		Los compiladores son herramientas esenciales en el desarrollo de software, ya que traducen el código fuente escrito en un lenguaje de programación de alto nivel a un lenguaje de bajo nivel o código máquina que puede ser entendido y ejecutado por la computadora. Esta conversión permite que los programas sean eficientes y optimizados para diferentes arquitecturas de hardware. Además, los compiladores ayudan a identificar errores en el código durante el proceso de traducción, mejorando así la calidad del software y facilitando el desarrollo de software.
+	
+	\section{Tokenizador de expresiones analíticas o ecuaciones}
+	
+	Una parte importante en el desarrollo de un compilador es la categorización del lenguaje de programación de alto a nivel en estructuras básicas mediante una etiqueta que las identifique, es por ello que un programa para este caso basado en la programación orientada a objetos sera de vital importancia para facilitar este proceso, brindando flexibilidad y escalamiento en el desarrollo del compilador.
+	
+	Para la creación del lenguaje de este programa se hizo uso del lenguaje CSharp y una de las metodologías de programación basada en la caracterización de objetos como entes virtuales, para este caso en concreto se definen 2 clases principales \textbf{Token} y \textbf{Lexer} las cuales se utilizaran para la creación del software de tokenización.
+	
+	Para la clasificación, subdivisión de caracteres para finalmente realizar la clasificación de cada token se definio una maquina de estados a nivel lógico y en la cual se definieron los estados necesarios para catalogar cada token en:
+	\begin{itemize}
+		\item Variable
+		\item Asignación
+		\item Operadores
+	\end{itemize}
+	
+	Sin embargo para tener un mayor panorama en la creación de las expresiones será necesario agregar más tokens para el clasificamiento
+	
+		
+	
+	\bibliographystyle{IEEEtran}
+	\bibliography{biblio}
+\end{document}

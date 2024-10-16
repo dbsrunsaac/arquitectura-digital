@@ -65,9 +65,9 @@ namespace AppTokens
             {
                 switch (state)
                 {
-                    // Estado 0: Operaciones ("+", "-", "*", "/")
+                    // Estado 0: Operaciones ("+", "-", "*", "/", "!")
                     case 0:
-                        if (c == '+' || c == '-' || c == '*' || c == '/')
+                        if (c == '+' || c == '-' || c == '*' || c == '/' || c == '!')
                         {
                             // Agregar el token de operación
                             aTokens.Add(new Token("Op", c.ToString()));
@@ -85,11 +85,11 @@ namespace AppTokens
 
                             state = 2;  // Transición al estado 2 (asignaciones)
                         }
-                        else if (c == ';')
+                        else if (c == '(' || c == ')')
                         {
-                            // ´Si el estado es ';' finaliza una instrucción
-
-                            state = 3; // Transición al estado 3 (Finalizar operaciones)
+                            state = 3;
+                            currentToken = c.ToString();
+                            break;
                         }
                         else if (char.IsWhiteSpace(c))
                         {
@@ -138,11 +138,12 @@ namespace AppTokens
                         }
                         break;
                     case 3:
-                        // Agregar el token de finalización de instrucción
-                        Console.WriteLine("Agregando el nuevo estado");
-                        aTokens.Add(new Token("Fz", ";"));
+                        // Agregar el token de simbolo
+                        aTokens.Add(new Token("Sb", currentToken ));
+                        currentToken = "";
                         state = 0;
 
+                        // Volver a procesar el carácter actual desde el estado 0 si no es un espacio
                         if (!char.IsWhiteSpace(c))
                         {
                             Tokenize(c.ToString());  // Procesar el carácter actual en el estado 0
@@ -189,7 +190,7 @@ namespace AppTokens
             Lexer lexer = new Lexer();
 
             // La expresión a tokenizar
-            string expression = "Suma = a + b - c ;";
+            string expression = "Suma = ( a + b ) * c";
 
             // Tokenizar la expresión
             lexer.Tokenize(expression);
