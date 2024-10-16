@@ -26,7 +26,7 @@
 	linkcolor=colorEnlace,
 	citecolor=colorEnlace,
 	urlcolor=colorEnlace,
-	pdfauthor={Ruth Juana Espino Puma},
+	pdfauthor={Davis Bremdow Salazar Roa},
 	pdftitle={Introducción a LaTeX}
 }
 % Control 
@@ -46,6 +46,7 @@
 	\maketitle
 	
 	\begin{abstract}
+		Compilers are crucial in software development as they translate high-level programming code into machine code, optimizing it for different hardware architectures while identifying errors. A key part of compiler development is categorizing the code into basic structures using a tokenizer. In this process, object-oriented programming (OOP) in CSharp is used, with two main classes, **Token** and Lexer, to create the tokenization software. A state machine is implemented to classify tokens into categories like variables, assignments, and operators, though more tokens will be needed for comprehensive expression handling.
 	\end{abstract}
 	
 	\begin{IEEEkeywords}
@@ -68,7 +69,39 @@
 		\item Operadores
 	\end{itemize}
 	
-	Sin embargo para tener un mayor panorama en la creación de las expresiones será necesario agregar más tokens para el clasificamiento
+	Sin embargo para tener un mayor panorama en la creación de las expresiones será necesario agregar más categorías para la tokenización de elementos y en las cuales de forma necesaria se agrego un operador binario "!" (negación) y el reconocimiento de símbolos "(" y ")" para poder organizar las expresiones analíticas o matemáticas.
+	
+	Creando un estado adicional en la maquina de estados para este propósito, siendo este el código generado para tal reconocimiento y funcionamiento
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\textwidth]{media/con-simbolos}
+		\caption{Condicional para el reconocimiento de simbolos}
+		\label{fig:con-simbolos}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\textwidth]{media/simbolos-estado}
+		\caption{Estado adicional para el reconocimiento de simbolos}
+		\label{fig:simbolos-estado}
+	\end{figure}
+	
+	Apreciándose en la \ref{fig:con-simbolos} las condicionales necesarias para el reconocimiento del símbolo agregado y en la figura \ref{fig:simbolos-estado} el código en el cual se define el nuevo estado para agregar/reconocer símbolos dentro del esquema de tokens generados.
+	
+	\section{Analizador Léxico}
+	El analizador Léxico esta compuesto por 2 clases generales que nos permite tokenizar una determinada expresión dentro del lenguaje de alto nivel que se piensa ejecutar y en tal sentido y para ello se hace uso de las siguientes expresiones.
+	
+	\subsection{Token}
+	La clase Token representa una unidad básica de información dentro del proceso de tokenización. Cada instancia de la clase contiene dos atributos: el tipo de token (por ejemplo, variable, operador, asignación) y el valor asociado (como una letra, un operador o un símbolo). Además, incluye un método para devolver una representación del token en formato de texto.
+	
+	Dentro de los métodos de la clase Token se puede rescatar el uso de la función GetTokenInfo que nos permite recuperar la representación del Token en forma de texto y la cual nos servirá para mostrar las salidas con todo los elementos tokenizados.
+	
+	\subsection{Lexer}
+	La clase Lexer se encarga del proceso de tokenización, es decir, de dividir una expresión en tokens individuales. Utiliza una máquina de estados para recorrer cada carácter de una expresión, clasificando los tokens en categorías como operadores, variables, asignaciones o símbolos. Los tokens generados se almacenan en una lista, y la clase también incluye métodos para guardar estos tokens en un archivo o mostrarlos en pantalla.
+	
+	Dentro de la clase Lexer se pueden rescatar los siguientes métodos siendo el principal el método principal es Tokenize, que utiliza una máquina de estados para analizar una expresión y generar tokens. Además, hay métodos para guardar los tokens generados en un archivo (SaveTokensToFile) y para mostrarlos en pantalla (DisplayTokens), todos operando sobre la lista de tokens generados.
+	
+	
 	
 		
 	
