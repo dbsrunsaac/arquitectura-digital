@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="AnalizadorLexico">
+      <HintPath>..\..\Scanner\AnalizadorLexico\bin\Debug\net6.0\AnalizadorLexico.dll</HintPath>
+    </Reference>
+    <Reference Include="AnalizadorSintactico">
+      <HintPath>..\..\Parser\AnalizadorSintactico\bin\Debug\net6.0\AnalizadorSintactico.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
