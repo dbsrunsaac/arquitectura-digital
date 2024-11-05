@@ -4,12 +4,13 @@ using System.IO;
 
 namespace AnalizadorSintactico
 {
+    // Permite para recorrer los nodos (visitar los NODOS)
     public abstract class NodoAST
     {
         public abstract void Aceptar(IVisitor visitor);
     }
 
-    public class NodoPrograma : NodoAST
+    public class NodoPrograma : NodoAST 
     {
         public List<NodoAST> aInstrucciones { get; set; } = new List<NodoAST>();
 

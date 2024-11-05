@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="AnalizadorLexico">
+      <HintPath>..\..\..\..\..\..\..\Documents\AnalizadorLexico.dll</HintPath>
+    </Reference>
+    <Reference Include="AnalizadorSintactico">
+      <HintPath>..\..\..\COMPILADOR\dllCompilador\Parser\AnalizadorSintactico\bin\Debug\net6.0\AnalizadorSintactico.dll</HintPath>
+    </Reference>
+    <Reference Include="LPersona1">
+      <HintPath>..\..\..\..\C#\librerias\LPersona1\LPersona1\bin\Debug\LPersona1.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

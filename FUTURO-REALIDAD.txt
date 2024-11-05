@@ -1,0 +1,46 @@
+Arbol
+Es una estructura de datos que relaciona nodos entre si mediante ramas de una forma jerarquica.
+
+Aplicaciones
+IA - ver las relaciones entre datos
+Exploradores - Robert Perserverance 
+Compiladores - Permite conocer la estructura entre tokens del lenguaje
+
+
+
+
+
+
+Analizador Léxico
+Se encarga de tokenizar el lenguaje de programación de asignar una categoria a cada simbolo, operador, varible, función, etc. Del lenguaje de programación
+
+Analizador Sintactico
+Se encarga de generar el arbol (parsear) de decisión en función a los tokens generados
+
+Parseador
+Se encarga de generar la estructura de los arboles en función a lo generado por el analizador Léxico, 
+
+¿Como se genera la jerarquia?
+
+
+
+
+
+
+
+Aprender a realizar el diseño
+No solo conformarse con lo que ya esta
+
+Nada esta dicho, aprender en la industria es mucho más rápido de lo que se piensa
+
+
+Buscar problemas y saber donde se encuentran.
+
+(Esto se podría encontrar en otras ramas de estudio)
+
+Hacer bases de datos desde el mismo circuito integrado.
+
+La curva de información se reduce un montón en el lugar donde ya se desarrolla toda la tecnología, 
+
+
+La guerra secreta para controlar los chips
