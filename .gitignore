@@ -1,3 +1,6 @@
+# Python 
+# Archivos Temporales
+__pycache__/
 # Proteus
 Project Backups/
 # Proteus Data
@@ -149,3 +152,50 @@ $RECYCLE.BIN/
 *.out
 *.synctex.gz
 *.pdf
+
+# Desarrollo con VHDL
+# Ignorar archivos temporales y generados por Quartus Prime
+*.tmp
+*.log
+*.bak
+*.jdi
+*.hex
+*.html
+*.rpt
+*.smsg
+*.sof
+*.sopc_builder
+*.summary
+*.tcl
+*.txt
+
+# Ignorar archivos de simulación
+*/simulation/
+*/testbench/
+*/*_sim/
+
+# Ignorar archivos de compilación
+*/db/
+*/incremental_db/
+*/*_generation_script*
+*_inst.vhd
+
+# Ignorar archivos de salida
+*_output_files/
+*.sof
+*.pof
+
+# Ignorar archivos de diseño
+*.qws
+*.qar
+*.qarlog
+*.ptf
+*.sopc
+
+# Ignorar archivos de configuración
+*.sdc
+
+# Ignorar archivos temporales generados por el usuario
+*~
+*example*
+*sopc_*
