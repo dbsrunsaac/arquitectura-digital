@@ -154,48 +154,58 @@ $RECYCLE.BIN/
 *.pdf
 
 # Desarrollo con VHDL
-# Ignorar archivos temporales y generados por Quartus Prime
+# Archivos de configuración generados automáticamente
+*.qpf
+*.qsf
+
+# Archivos de bases de datos y compilación
+db/
+incremental_db/
+*.rpt
+*.summary
+
+# Archivos temporales y de cache
+*.bak
 *.tmp
 *.log
-*.bak
-*.jdi
-*.hex
-*.html
-*.rpt
+*.sld
 *.smsg
-*.sof
-*.sopc_builder
-*.summary
-*.tcl
-*.txt
+*.jou
+*.cmp
+*.eqn
+*.vmap
 
-# Ignorar archivos de simulación
-*/simulation/
-*/testbench/
-*/*_sim/
+# Archivos de simulación
+*.wlf
+*.vcd
+modelsim.ini
 
-# Ignorar archivos de compilación
-*/db/
-*/incremental_db/
-*/*_generation_script*
-*_inst.vhd
-
-# Ignorar archivos de salida
-*_output_files/
+# Resultados de síntesis y programación
 *.sof
 *.pof
+*.jic
+*.jam
+*.hex
+*.hif
+*.bin
+*.raw
 
-# Ignorar archivos de diseño
-*.qws
+# Otros directorios temporales
+output_files/
+simulation/
+
+# Archivos específicos de Quartus
 *.qar
-*.qarlog
-*.ptf
-*.sopc
+*.qws
+*.done
 
-# Ignorar archivos de configuración
-*.sdc
+# Archivos de trabajo de la IP
+ip/
+*.ipx
+*.qip
 
-# Ignorar archivos temporales generados por el usuario
-*~
-*example*
-*sopc_*
+# Archivos generados por otros editores o sistemas
+*.swp
+.DS_Store
+Thumbs.db
+
