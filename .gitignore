@@ -155,57 +155,7 @@ $RECYCLE.BIN/
 
 # Desarrollo con VHDL
 # Archivos de configuración generados automáticamente
-*.qpf
-*.qsf
-
-# Archivos de bases de datos y compilación
-db/
-incremental_db/
-*.rpt
-*.summary
-
-# Archivos temporales y de cache
-*.bak
-*.tmp
-*.log
-*.sld
-*.smsg
-*.jou
-*.cmp
-*.eqn
-*.vmap
-
-# Archivos de simulación
-*.wlf
-*.vcd
-modelsim.ini
-
-# Resultados de síntesis y programación
-*.sof
-*.pof
-*.jic
-*.jam
-*.hex
-*.hif
-*.bin
-*.raw
-
-# Otros directorios temporales
-output_files/
-simulation/
-
-# Archivos específicos de Quartus
-*.qar
-*.qws
-*.done
-
-# Archivos de trabajo de la IP
-ip/
-*.ipx
-*.qip
-
-# Archivos generados por otros editores o sistemas
-*.swp
-.DS_Store
-Thumbs.db
+VHDL/demux1to2/*
+# Agregar estos archivos al directorio de trabajo con VHDL
+!VHDL/.vhd
 
