@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <Reference Include="AnalizadorLexico">
-      <HintPath>..\..\LIBRERIAS\Parser\AnalizadorSintactico\bin\Debug\net6.0\AnalizadorLexico.dll</HintPath>
+      <HintPath>..\..\LIBRERIAS\Scanner\AnalizadorLexico\bin\Debug\net6.0\AnalizadorLexico.dll</HintPath>
     </Reference>
     <Reference Include="AnalizadorSemantico">
       <HintPath>..\..\LIBRERIAS\Semantico\AnalizadorSemantico\bin\Debug\net6.0\AnalizadorSemantico.dll</HintPath>
