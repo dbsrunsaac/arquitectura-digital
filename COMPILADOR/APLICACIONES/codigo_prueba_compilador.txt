@@ -1,0 +1,21 @@
+def sumar(a, b) :
+	return a + b
+
+def restar(a, b) :
+	return a - b
+
+def producto(a, b) :
+	return a * b
+
+c = sumar(5, 12)
+print("La suma es: ")
+print(c)
+
+a = 4
+b = 6
+c =  a + b
+
+if a >= 5 :
+	c = a + b
+else :
+	c = a - b
