@@ -1,0 +1,45 @@
+# do sumador8bits.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:28:49 on Nov 18,2024
+# vcom -work work sumador8bits.vho 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package altera_lnsim_components
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cyclonev_atom_pack
+# -- Loading package cyclonev_components
+# -- Compiling entity sumador8bits
+# -- Compiling architecture structure of sumador8bits
+# End time: 14:28:50 on Nov 18,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:28:50 on Nov 18,2024
+# vcom -work work Waveform.vwf.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sumador8bits_vhd_vec_tst
+# -- Compiling architecture sumador8bits_arch of sumador8bits_vhd_vec_tst
+# End time: 14:28:50 on Nov 18,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.sumador8bits_vhd_vec_tst 
+# Start time: 14:28:50 on Nov 18,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.sumador8bits_vhd_vec_tst(sumador8bits_arch)
+# Loading altera_lnsim.altera_lnsim_components
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading cyclonev.cyclonev_atom_pack(body)
+# Loading cyclonev.cyclonev_components
+# Loading work.sumador8bits(structure)
+# Loading ieee.std_logic_arith(body)
+# Loading cyclonev.cyclonev_io_obuf(arch)
+# Loading cyclonev.cyclonev_io_ibuf(arch)
+# Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)
+# after#30
+# End time: 14:28:52 on Nov 18,2024, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0

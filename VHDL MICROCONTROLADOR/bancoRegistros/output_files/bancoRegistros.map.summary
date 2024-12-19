@@ -1,0 +1,18 @@
+Analysis & Synthesis Status : Successful - Wed Dec 18 12:43:07 2024
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : bancoRegistros
+Top-level Entity Name : bancoRegistros
+Family : Cyclone IV GX
+Total logic elements : 600
+    Total combinational functions : 344
+    Dedicated logic registers : 256
+Total registers : 256
+Total pins : 63
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total GXB Receiver Channel PCS : 0
+Total GXB Receiver Channel PMA : 0
+Total GXB Transmitter Channel PCS : 0
+Total GXB Transmitter Channel PMA : 0
+Total PLLs : 0
