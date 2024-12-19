@@ -8,13 +8,13 @@ Port (
 	Clock : in STD_LOGIC; -- Señal de reloj
 	Reset : in STD_LOGIC; -- Señal de reinicio
 	IRWrite : in STD_LOGIC; -- Señal para habilitar escritura en el IR
-	InstrIn : in STD_LOGIC_VECTOR(15 downto 0); -- Instrucción desde la memoria
-	InstrOut : out STD_LOGIC_VECTOR(15 downto 0) -- Instrucción almacenada
+	InstrIn : in STD_LOGIC_VECTOR(7 downto 0); -- Instrucción desde la memoria
+	InstrOut : out STD_LOGIC_VECTOR(7 downto 0) -- Instrucción almacenada
 );
 end entity;
 
 architecture arch of registroInstruccion is
-signal IR : STD_LOGIC_VECTOR(15 downto 0) := (others => '0'); -- Registro de instrucciones
+signal IR : STD_LOGIC_VECTOR(7 downto 0) := (others => '0'); -- Registro de instrucciones
 begin
 	process(Clock, Reset)
 	begin

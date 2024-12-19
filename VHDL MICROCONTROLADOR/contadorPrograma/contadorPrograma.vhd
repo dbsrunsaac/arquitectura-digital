@@ -4,11 +4,11 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity contadorPrograma is
 Port (
-Clock : in STD_LOGIC; -- Señal de reloj
-Reset : in STD_LOGIC; -- Señal de reinicio
-PCWrite : in STD_LOGIC; -- Señal para habilitar la escritura en el PC
-JumpAddress : in STD_LOGIC_VECTOR(15 downto 0); -- Dirección para operaciones de salto
-PCOut : out STD_LOGIC_VECTOR(15 downto 0) -- Dirección actual del PC
+	Clock : in STD_LOGIC; -- Señal de reloj
+	Reset : in STD_LOGIC; -- Señal de reinicio
+	PCWrite : in STD_LOGIC; -- Señal para habilitar la escritura en el PC
+	JumpAddress : in STD_LOGIC_VECTOR(15 downto 0); -- Dirección para operaciones de salto
+	PCOut : out STD_LOGIC_VECTOR(15 downto 0) -- Dirección actual del PC
 );
 end entity;
 

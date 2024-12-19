@@ -11,14 +11,14 @@ Port (
 	ReadReg1 : in STD_LOGIC_VECTOR(3 downto 0); -- Dirección del primer registro a leer
 	ReadReg2 : in STD_LOGIC_VECTOR(3 downto 0); -- Dirección del segundo registro a leer
 	WriteReg : in STD_LOGIC_VECTOR(3 downto 0); -- Dirección del registro a escribir
-	WriteData : in STD_LOGIC_VECTOR(15 downto 0); -- Datos a escribir en el registro
-	ReadData1 : out STD_LOGIC_VECTOR(15 downto 0); -- Datos leídos del primer registro
-	ReadData2 : out STD_LOGIC_VECTOR(15 downto 0) -- Datos leídos del segundo registro
+	WriteData : in STD_LOGIC_VECTOR(7 downto 0); -- Datos a escribir en el registro
+	ReadData1 : out STD_LOGIC_VECTOR(7 downto 0); -- Datos leídos del primer registro
+	ReadData2 : out STD_LOGIC_VECTOR(7 downto 0) -- Datos leídos del segundo registro
 );
 end entity;
 
 architecture Arch of bancoRegistros is
-	type Register_File is array (0 to 15) of STD_LOGIC_VECTOR(15 downto 0);
+	type Register_File is array (0 to 15) of STD_LOGIC_VECTOR(7 downto 0);
 	signal Registers : Register_File := (others => (others => '0')); -- Inicializar registros en 0
 begin
 	-- Proceso para lectura de registros

@@ -4,10 +4,10 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity muxOperando is
 Port (
-	Input1 : in STD_LOGIC_VECTOR(15 downto 0); -- Entrada 1: Valor del Banco de Registros
-	Input2 : in STD_LOGIC_VECTOR(15 downto 0); -- Entrada 2: Valor inmediato de la instrucción
+	Input1 : in STD_LOGIC_VECTOR(7 downto 0); -- Entrada 1: Valor del Banco de Registros
+	Input2 : in STD_LOGIC_VECTOR(7 downto 0); -- Entrada 2: Valor inmediato de la instrucción
 	selector : in STD_LOGIC; -- Señal de selección
-	Output : out STD_LOGIC_VECTOR(15 downto 0) -- Salida: Operando seleccionado
+	Output : out STD_LOGIC_VECTOR(7 downto 0) -- Salida: Operando seleccionado
 );
 end entity;
 

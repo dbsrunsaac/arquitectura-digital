@@ -6,8 +6,8 @@ use IEEE.numeric_std.ALL;
 entity memoriaBufferSalida is
 Port (
 	Address : in STD_LOGIC_VECTOR(15 downto 0); -- Dirección de memoria
-	DataIn : in STD_LOGIC_VECTOR(15 downto 0); -- Datos de entrada (escritura)
-	DataOut : out STD_LOGIC_VECTOR(15 downto 0); -- Datos de salida (lectura)
+	DataIn : in STD_LOGIC_VECTOR(7 downto 0); -- Datos de entrada (escritura)
+	DataOut : out STD_LOGIC_VECTOR(7 downto 0); -- Datos de salida (lectura)
 	MemRead : in STD_LOGIC; -- Señal para habilitar lectura
 	MemWrite : in STD_LOGIC; -- Señal para habilitar escritura
 	Clock : in STD_LOGIC -- Señal de reloj
@@ -15,9 +15,9 @@ Port (
 end entity;
 
 architecture Arch of memoriaBufferSalida is
-	type Memory_Array is array (0 to 255) of STD_LOGIC_VECTOR(15 downto 0);
+	type Memory_Array is array (0 to 255) of STD_LOGIC_VECTOR(7 downto 0);
 	signal Memory : Memory_Array := (others => (others => '0')); -- Memoria inicializada en 0
-	signal BufferData : STD_LOGIC_VECTOR(15 downto 0); -- Buffer de salida
+	signal BufferData : STD_LOGIC_VECTOR(7 downto 0); -- Buffer de salida
 begin
 	process(Clock)
 	begin
