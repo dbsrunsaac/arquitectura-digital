@@ -109,7 +109,7 @@ namespace CSintetizador
             nodo.aValorRetorno?.Aceptar(this);
             string valor = ObtenerValor(nodo.aValorRetorno);
             GenerarCodigo($"LDA {valor}");
-            GenerarCodigo("MOVD");
+            GenerarCodigo("MOV");
             GenerarCodigo("NOP");
         }
 
@@ -126,7 +126,7 @@ namespace CSintetizador
             else if (nodo.aValor is NodoOperacion)
             {
                 // Ya procesamos la operación en el Visit(NodoOperacion)
-                aSimbolos[nodo.aIdentificador.aNombre] = "D"; // Usar el registro de datos D para operaciones
+                aSimbolos[nodo.aIdentificador.aNombre] = ""; // Usar el registro de datos D para operaciones
             }
         }
 
@@ -148,9 +148,9 @@ namespace CSintetizador
             string etiquetaEndIf = GenerarEtiqueta();
 
             nodo.Condicion.Aceptar(this);
-            GenerarCodigo("JPZ " + etiquetaElse);
+            GenerarCodigo("BEQ " + etiquetaElse);
             nodo.CuerpoIf.Aceptar(this);
-            GenerarCodigo("JPI " + etiquetaEndIf);
+            GenerarCodigo("B " + etiquetaEndIf);
             GenerarCodigo(etiquetaElse + ":");
             nodo.CuerpoElse?.Aceptar(this);
             GenerarCodigo(etiquetaEndIf + ":");
@@ -163,52 +163,31 @@ namespace CSintetizador
 
             GenerarCodigo(etiquetaInicio + ":");
             nodo.Condicion.Aceptar(this);
-            GenerarCodigo("JPZ " + etiquetaFin);
+            GenerarCodigo("BEQ " + etiquetaFin);
             nodo.Cuerpo.Aceptar(this);
-            GenerarCodigo("JPI " + etiquetaInicio);
+            GenerarCodigo("B " + etiquetaInicio);
             GenerarCodigo(etiquetaFin + ":");
         }
 
         private void GenerarSuma(string izquierda, string derecha)
         {
             GenerarCodigo($"LDA {izquierda}");
-            GenerarCodigo("MOVD");
             GenerarCodigo("NOP");
-            GenerarCodigo("LDRD");
             GenerarCodigo($"ADD {derecha}");
         }
 
         private void GenerarResta(string izquierda, string derecha)
         {
             GenerarCodigo($"LDA {izquierda}");
-            GenerarCodigo($"NAND {izquierda}");
-            GenerarCodigo("ADD 1");
-            GenerarCodigo("MOVD");
             GenerarCodigo("NOP");
-            GenerarCodigo("LDRD");
-            GenerarCodigo($"ADD {derecha}");
+            GenerarCodigo($"SUB {derecha}");
         }
 
         private void GenerarMultiplicacion(string izquierda, string derecha)
         {
-            GenerarCodigo("LDA 0");
-            GenerarCodigo("MOVD");
-            GenerarCodigo("NOP");
-
-            string etiquetaInicio = GenerarEtiqueta();
-            string etiquetaFin = GenerarEtiqueta();
-
-            GenerarCodigo(etiquetaInicio + ":");
-            GenerarCodigo($"LDA {derecha}");
-            GenerarCodigo("NAND 1");
-            GenerarCodigo($"JPZ {etiquetaFin}");
             GenerarCodigo($"LDA {izquierda}");
-            GenerarCodigo("ADD D");
-            GenerarCodigo("MOVD");
             GenerarCodigo("NOP");
-            GenerarCodigo($"JPI {etiquetaInicio}");
-            GenerarCodigo(etiquetaFin + ":");
-            GenerarCodigo("LDRD");
+            GenerarCodigo($"MUL {derecha}");
         }
 
         private void GenerarIgual(string izquierda, string derecha)

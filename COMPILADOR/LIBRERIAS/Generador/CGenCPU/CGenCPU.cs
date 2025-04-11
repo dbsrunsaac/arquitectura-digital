@@ -15,21 +15,20 @@ namespace CGenCPU
             aInstrucciones = new Dictionary<string, string>
             {
                 { "NOP", "0000" },
-                { "NAND", "0001" },
-                { "ADD", "0010" },
-                { "LDA", "0011" },
-                { "OUTA", "0100" },
-                { "OUTB", "0101" },
-                { "INPA", "0110" },
-                { "MOVD", "0111" },
-                { "MOVA", "1000" },
-                { "LDRD", "1001" },
-                { "OUTC", "1010" },
-                { "MOVE", "1011" },
-                { "JPI", "1100" },
-                { "JPC", "1101" },
-                { "JPZ", "1110" },
-                { "LDRE", "1111" }
+                { "ADD", "0001" },
+                { "SUB", "0010" },
+                { "MUL", "0011" },
+                { "AND", "0100" },
+                { "OR", "0101" },
+                { "XOR", "0110" },
+                { "MOV", "0111" },
+                { "LSL", "1000" },
+                { "LSR", "1001" },
+                { "B", "1010" },
+                { "BEQ", "1011" },
+                { "BNE", "1100" },
+                { "LDA", "1101" },
+                { "OUTA", "1110"}
             };
         }
 
@@ -40,10 +39,10 @@ namespace CGenCPU
             set { aInstrucciones = value; }
         }
 
-        // Método para convertir un número a binario de 4 bits
+        // Método para convertir un número a binario de 8 bits
         private string ConvertirNumeroABinario(int numero)
         {
-            return Convert.ToString(numero, 2).PadLeft(4, '0');
+            return Convert.ToString(numero, 2).PadLeft(8, '0');
         }
 
         // Método para convertir una cadena binaria a decimal
