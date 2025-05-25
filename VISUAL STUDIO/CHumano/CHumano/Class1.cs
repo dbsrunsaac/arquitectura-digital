@@ -17,18 +17,12 @@ namespace CHumano
 
         public CPersona()
         {
+
         }
 
         public string saludar()
         {
             return nombre;
-        }
-
-        public void sumar()
-        {
-            int n1 = 1;
-            int n2 = 2;
-            Console.WriteLine("La suma es: " + (n1 + n2));
         }
     }
 }
