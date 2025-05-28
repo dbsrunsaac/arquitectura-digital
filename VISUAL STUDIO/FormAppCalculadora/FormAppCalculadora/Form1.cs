@@ -2,6 +2,7 @@
 using System;
 using CMatematica;
 using System.Windows.Forms;
+using System.DirectoryServices.ActiveDirectory;
 
 
 namespace FormAppCalculadora
@@ -103,7 +104,7 @@ namespace FormAppCalculadora
         }
         private void btnPotencia_Click(object sender, EventArgs e)
         {
-            textoDisplay += "**";
+            textoDisplay += "^";
             txtDisplay.Text = textoDisplay;
         }
 
@@ -139,30 +140,59 @@ namespace FormAppCalculadora
 
         private void btnIgual_Click(object sender, EventArgs e)
         {
-            string salidas = "";
-            string[] operaciones = new string[]{"+", "-", "x", "/", "**", "sqrt"};
-            double resultado = 0;
+            string resultado = "";
             string operacion = "";
+            double n1, n2;
+            n1 = 0;
+            n2 = 0;
 
             for (int i = 0; i < textoDisplay.Length; i++)
             {
 
-                switch (textoDisplay[i])
+                if (textoDisplay[i] == '+')
                 {
-                    case '+':
-                        double n1 = double.Parse(textoDisplay.Substring(0, i));
-                        double n2 = double.Parse(textoDisplay.Substring(i + 1, textoDisplay.Length - i - 1));
-                        resultado = COperaciones.sumar(n1, n2);
-                        return;
-                    default:
-                        salidas = "Define una operación";
-                        resultado = 0;
-                        break;
+                    n1 = double.Parse(textoDisplay.Substring(0, i));
+                    n2 = double.Parse(textoDisplay.Substring(i + 1, textoDisplay.Length - i - 1));
+                    operacion = "+";
+                    resultado = COperaciones.sumar(n1, n2).ToString();
+                    break;
                 }
-                
+                else if (textoDisplay[i] == '-')
+                {
+                    n1 = double.Parse(textoDisplay.Substring(0, i));
+                    n2 = double.Parse(textoDisplay.Substring(i + 1, textoDisplay.Length - i - 1));
+                    operacion = "-";
+                    resultado = COperaciones.restar(n1, n2).ToString();
+                    break;
+                }
+                else if (textoDisplay[i] == '/')
+                {
+                    n1 = double.Parse(textoDisplay.Substring(0, i));
+                    n2 = double.Parse(textoDisplay.Substring(i + 1, textoDisplay.Length - i - 1));
+                    operacion = "/";
+                    resultado = COperaciones.division(n1, n2);
+                    break;
+                }
+                else if (textoDisplay[i] == 'x')
+                {
+                    n1 = double.Parse(textoDisplay.Substring(0, i));
+                    n2 = double.Parse(textoDisplay.Substring(i + 1, textoDisplay.Length - i - 1));
+                    operacion = "x";
+                    resultado = COperaciones.producto(n1, n2).ToString();
+                    break;
+                }
+                else if (textoDisplay[i] == '^')
+                {
+                    n1 = double.Parse(textoDisplay.Substring(0, i));
+                    n2 = double.Parse(textoDisplay.Substring(i + 1, textoDisplay.Length - i - 1));
+                    operacion = "x";
+                    resultado = COperaciones.pot(n1, n2);
+                    break;
+                }
+
             }
-            lblTest.Text = salidas;
-            txtDisplay.Text = resultado.ToString();
+            lblTest.Text = "La operación es: " + operacion;
+            txtDisplay.Text = resultado;
             textoDisplay = "";
         }
 
@@ -170,6 +200,19 @@ namespace FormAppCalculadora
         {
             textoDisplay = "";
             txtDisplay.Text = textoDisplay;
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            if(textoDisplay.Length != 0)
+            {
+                textoDisplay = textoDisplay.Remove(textoDisplay.Length - 1, 1);
+                txtDisplay.Text = textoDisplay;
+            }
+            else
+            {
+                lblTest.Text = "Nada que borrar";
+            }
             
         }
     }

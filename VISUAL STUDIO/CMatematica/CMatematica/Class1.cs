@@ -20,7 +20,7 @@
         public static string division(double n1, double n2)
         {
             string resultado;
-            resultado = !(n2 == 0) ? (n1 / n2).ToString() : "La div es Indef.";
+            resultado = !(n2 == 0) ? (n1 / n2).ToString() : "E: La div es Indef.";
             return resultado;
         }
 
@@ -30,15 +30,16 @@
 
             if (n1 == 0 && n2 == 0)
             {
-                resultado = "Error en el cálculo";
+                resultado = "E: Error en el cálculo";
             }
             else
             {
-                for (int i = 0; i < n2 - 1; i++)
+                double n3 = 1;
+                for (int i = 0; i < n2; i++)
                 {
-                    n1 *= n1;
+                    n3 *= n1;
                 }
-                resultado = n1.ToString();
+                resultado = n3.ToString();
             }
             return resultado;
         }
@@ -46,7 +47,7 @@
         public static string sqrt(double n1)
         {
             string resultado;
-            resultado = !(n1 < 0) ? Math.Sqrt(n1).ToString() : "Raiz no definida para números negativos";
+            resultado = !(n1 < 0) ? Math.Sqrt(n1).ToString() : "E: Raiz no definida para números negativos";
             return resultado;
         }
     }

@@ -50,6 +50,7 @@
             lblTime = new Label();
             lblTest = new Label();
             btnAllClear = new Button();
+            btnBorrar = new Button();
             SuspendLayout();
             // 
             // btn7
@@ -326,11 +327,25 @@
             btnAllClear.UseVisualStyleBackColor = true;
             btnAllClear.Click += btnAllClear_Click;
             // 
+            // btnBorrar
+            // 
+            btnBorrar.FlatStyle = FlatStyle.Flat;
+            btnBorrar.Font = new Font("Segoe UI", 10F);
+            btnBorrar.Location = new Point(278, 175);
+            btnBorrar.Name = "btnBorrar";
+            btnBorrar.Size = new Size(86, 50);
+            btnBorrar.TabIndex = 9;
+            btnBorrar.Text = "<";
+            btnBorrar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnBorrar.UseVisualStyleBackColor = true;
+            btnBorrar.Click += btnBorrar_Click;
+            // 
             // frmCalculadora
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(552, 563);
+            Controls.Add(btnBorrar);
             Controls.Add(btnAllClear);
             Controls.Add(lblTest);
             Controls.Add(lblTime);
@@ -386,5 +401,6 @@
         private Label lblTime;
         private Label lblTest;
         private Button btnAllClear;
+        private Button btnBorrar;
     }
 }
