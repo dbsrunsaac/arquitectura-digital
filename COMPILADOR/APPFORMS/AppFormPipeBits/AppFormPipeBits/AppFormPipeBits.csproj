@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="AnalizadorLexico">
+      <HintPath>..\..\..\LIBRERIAS\Scanner\AnalizadorLexico\bin\Debug\net6.0\AnalizadorLexico.dll</HintPath>
+    </Reference>
+    <Reference Include="AnalizadorSemantico">
+      <HintPath>..\..\..\LIBRERIAS\Semantico\AnalizadorSemantico\bin\Debug\net6.0\AnalizadorSemantico.dll</HintPath>
+    </Reference>
+    <Reference Include="AnalizadorSintactico">
+      <HintPath>..\..\..\LIBRERIAS\Parser\AnalizadorSintactico\bin\Debug\net6.0\AnalizadorSintactico.dll</HintPath>
+    </Reference>
+    <Reference Include="CGenCPU">
+      <HintPath>..\..\..\LIBRERIAS\Generador\CGenCPU\bin\Debug\net6.0\CGenCPU.dll</HintPath>
+    </Reference>
+    <Reference Include="CSintetizador">
+      <HintPath>..\..\..\LIBRERIAS\Sintetizador\CSintetizador\bin\Debug\net6.0\CSintetizador.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

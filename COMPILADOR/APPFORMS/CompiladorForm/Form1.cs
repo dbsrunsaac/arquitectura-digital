@@ -4,11 +4,12 @@ using System.IO;
 using System.Windows.Forms;
 using QuickGraph;
 using QuickGraph.Graphviz;
-using AnalizadorLexico;
-using AnalizadorSintactico;
-using AnalizadorSemantico;
-using CSintetizador;
-using CGenCPU;
+using AnalizadorLexico; // Scanner -> Genera Tokens
+using AnalizadorSintactico; // Parse -> Genera el AST
+using AnalizadorSemantico; // Verifica el código
+
+using CSintetizador; // Estructura del código ASM
+using CGenCPU; // Genera el código BIN
 
 namespace CLETI
 {
@@ -238,6 +239,11 @@ namespace CLETI
         }
 
         private void TxtEnsamblador_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void herramientasToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

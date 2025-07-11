@@ -11,7 +11,7 @@ namespace CSintetizador
         private Dictionary<string, string> aSimbolos;
         private int contadorEtiquetas = 0;
 
-        public Sintetizador()
+        public Sintetizador() // Constructor
         {
             aCodigoGenerado = new StringBuilder();
             aSimbolos = new Dictionary<string, string>();
