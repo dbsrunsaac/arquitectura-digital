@@ -14,21 +14,22 @@ namespace CGenCPU
         {
             aInstrucciones = new Dictionary<string, string>
             {
-                { "NOP", "0000" },
-                { "ADD", "0001" },
-                { "SUB", "0010" },
-                { "MUL", "0011" },
-                { "AND", "0100" },
-                { "OR", "0101" },
-                { "XOR", "0110" },
-                { "MOV", "0111" },
-                { "LSL", "1000" },
-                { "LSR", "1001" },
-                { "B", "1010" },
-                { "BEQ", "1011" },
-                { "BNE", "1100" },
-                { "LDA", "1101" },
-                { "OUTA", "1110"}
+                { "NOP", "00000000" },
+                { "LOAD", "00000001" },
+                { "STORE", "00000010" },
+                { "MOV", "00000011" },
+                { "JMP", "00000100" },
+                { "ADD", "00000101" },
+                { "SUB", "00000110" },
+                { "MUL", "00000111" },
+                { "AND", "00001001" },
+                { "OR", "00001010" },
+                { "XOR", "00001011" },
+                { "CMP", "00001100" },
+                { "ZERO", "00001101" },
+                { "OVERFLOW", "00001110" },
+                { "IN", "00001111"},
+                { "OUT", "00010000" }
             };
         }
 
@@ -46,13 +47,13 @@ namespace CGenCPU
         }
 
         // Método para convertir una cadena binaria a decimal
-        private byte ConvertirBinarioADecimal(string binario)
+        private Int16 ConvertirBinarioADecimal(string binario)
         {
-            return Convert.ToByte(binario, 2);
+            return Convert.ToInt16(binario, 2);
         }
 
         // Método para procesar una línea de instrucción y convertirla a un valor decimal
-        private byte ProcesarLinea(string linea)
+        private Int16 ProcesarLinea(string linea)
         {
             string[] partes = linea.Trim().Split(' ');
             string instruccion = partes[0].ToUpper();
@@ -63,7 +64,7 @@ namespace CGenCPU
             }
 
             string codigoBinario = aInstrucciones[instruccion];
-            string operandoBinario = "0000";
+            string operandoBinario = "00000000";
 
             // Si hay un operando, convertirlo a binario de 4 bits y concatenarlo
             if (partes.Length > 1)
@@ -79,36 +80,31 @@ namespace CGenCPU
             }
 
             string binarioCompleto = codigoBinario + operandoBinario;
+            
+            // Retorna una cadena de 16bits
             return ConvertirBinarioADecimal(binarioCompleto);
         }
 
         // Método para generar código binario desde un archivo CLI
         public byte[] GenerarCodigoBinarioDesdeCLI(string rutaCLI)
         {
-            try
+            string[] lineas = File.ReadAllLines(rutaCLI);
+            if (lineas.Length < 1)
             {
-                string[] lineas = File.ReadAllLines(rutaCLI);
-                if (lineas.Length < 1)
-                {
-                    throw new Exception("El archivo CLI debe contener al menos una instrucción.");
-                }
-
-                using (MemoryStream ms = new MemoryStream())
-                using (BinaryWriter bw = new BinaryWriter(ms))
-                {
-                    foreach (string linea in lineas)
-                    {
-                        byte valorDecimal = ProcesarLinea(linea);
-                        bw.Write(valorDecimal);
-                    }
-
-                    bw.Flush();
-                    return ms.ToArray();
-                }
+                throw new Exception("El archivo CLI debe contener al menos una instrucción.");
             }
-            catch (Exception ex)
+
+            using (MemoryStream ms = new MemoryStream())
+            using (BinaryWriter bw = new BinaryWriter(ms))
             {
-                throw new Exception("Error al generar el código binario: " + ex.Message);
+                foreach (string linea in lineas)
+                {
+                    Int16 valorDecimal = ProcesarLinea(linea);
+                    bw.Write(valorDecimal);
+                }
+
+                bw.Flush();
+                return ms.ToArray();
             }
         }
     }

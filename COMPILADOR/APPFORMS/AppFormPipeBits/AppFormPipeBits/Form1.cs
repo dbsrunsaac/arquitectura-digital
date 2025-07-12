@@ -128,6 +128,7 @@ namespace AppFormPipeBits
 
                     File.WriteAllBytes(nombreArchivoBin, codigoBinario);
                     MessageBox.Show("Archivo binario guardado correctamente en: " + nombreArchivoBin, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
 
                 }
             }

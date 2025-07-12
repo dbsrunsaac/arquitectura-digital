@@ -250,7 +250,7 @@
             // 
             rtxtCodigo.Location = new Point(10, 92);
             rtxtCodigo.Name = "rtxtCodigo";
-            rtxtCodigo.Size = new Size(697, 432);
+            rtxtCodigo.Size = new Size(697, 475);
             rtxtCodigo.TabIndex = 3;
             rtxtCodigo.Text = "";
             // 
@@ -258,7 +258,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 14.25F);
-            label2.Location = new Point(12, 533);
+            label2.Location = new Point(12, 575);
             label2.Name = "label2";
             label2.Size = new Size(220, 24);
             label2.TabIndex = 4;
@@ -268,7 +268,7 @@
             // 
             flowLayoutPanel3.Controls.Add(label3);
             flowLayoutPanel3.Dock = DockStyle.Bottom;
-            flowLayoutPanel3.Location = new Point(0, 789);
+            flowLayoutPanel3.Location = new Point(0, 839);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
             flowLayoutPanel3.Size = new Size(716, 22);
             flowLayoutPanel3.TabIndex = 5;
@@ -288,10 +288,10 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(12, 560);
+            tabControl1.Location = new Point(12, 602);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(695, 223);
+            tabControl1.Size = new Size(695, 225);
             tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -300,7 +300,7 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(687, 195);
+            tabPage1.Size = new Size(687, 197);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Salida";
             tabPage1.UseVisualStyleBackColor = true;
@@ -337,7 +337,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(223, 227, 238);
-            ClientSize = new Size(716, 811);
+            ClientSize = new Size(716, 861);
             Controls.Add(tabControl1);
             Controls.Add(flowLayoutPanel3);
             Controls.Add(label2);

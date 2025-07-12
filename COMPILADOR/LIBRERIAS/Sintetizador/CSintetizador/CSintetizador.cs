@@ -23,9 +23,9 @@ namespace CSintetizador
             StringBuilder codigoCompleto = new StringBuilder();
             codigoCompleto.AppendLine("NOP");
             codigoCompleto.Append(aCodigoGenerado);
-            codigoCompleto.AppendLine("LDA 0");
-            codigoCompleto.AppendLine("MOVA");
-            codigoCompleto.AppendLine("JPI 0");
+            codigoCompleto.AppendLine("LOAD 0");
+            codigoCompleto.AppendLine("MOV");
+            codigoCompleto.AppendLine("JMP 0");
             return codigoCompleto.ToString();
         }
 
@@ -108,7 +108,7 @@ namespace CSintetizador
         {
             nodo.aValorRetorno?.Aceptar(this);
             string valor = ObtenerValor(nodo.aValorRetorno);
-            GenerarCodigo($"LDA {valor}");
+            GenerarCodigo($"LOAD {valor}");
             GenerarCodigo("MOV");
             GenerarCodigo("NOP");
         }
@@ -137,7 +137,7 @@ namespace CSintetizador
                 if (valor is NodoIdentificador identificador)
                 {
                     string val = ObtenerValor(identificador);                   
-                    GenerarCodigo($"OUTA");
+                    GenerarCodigo($"OUT");
                 }
             }
         }
@@ -171,14 +171,14 @@ namespace CSintetizador
 
         private void GenerarSuma(string izquierda, string derecha)
         {
-            GenerarCodigo($"LDA {izquierda}");
+            GenerarCodigo($"LOAD {izquierda}");
             GenerarCodigo("NOP");
             GenerarCodigo($"ADD {derecha}");
         }
 
         private void GenerarResta(string izquierda, string derecha)
         {
-            GenerarCodigo($"LDA {izquierda}");
+            GenerarCodigo($"LOAD {izquierda}");
             GenerarCodigo("NOP");
             GenerarCodigo($"SUB {derecha}");
         }
@@ -193,14 +193,14 @@ namespace CSintetizador
         private void GenerarIgual(string izquierda, string derecha)
         {
             string etiquetaFin = GenerarEtiqueta();
-            GenerarCodigo($"LDA {izquierda}");
-            GenerarCodigo($"NAND {derecha}");
+            GenerarCodigo($"LOAD {izquierda}");
+            GenerarCodigo($"AND {derecha}");
             GenerarCodigo("ADD 1");
-            GenerarCodigo("MOVD");
+            GenerarCodigo("MOV");
             GenerarCodigo("NOP");
-            GenerarCodigo("LDRD");
+            GenerarCodigo("STORE");
             GenerarCodigo($"ADD {derecha}");
-            GenerarCodigo($"JPZ {etiquetaFin}");
+            GenerarCodigo($"JMP 0");
             GenerarCodigo(etiquetaFin + ":");
         }
 
@@ -208,13 +208,13 @@ namespace CSintetizador
         {
             string etiquetaFin = GenerarEtiqueta();
             GenerarCodigo($"LDA {izquierda}");
-            GenerarCodigo($"NAND {derecha}");
+            GenerarCodigo($"AND {derecha}");
             GenerarCodigo("ADD 1");
-            GenerarCodigo("MOVD");
+            GenerarCodigo("MOV");
             GenerarCodigo("NOP");
-            GenerarCodigo("LDRD");
+            GenerarCodigo("STORE");
             GenerarCodigo($"ADD {derecha}");
-            GenerarCodigo($"JPC {etiquetaFin}");
+            GenerarCodigo($"JMP 0");
             GenerarCodigo(etiquetaFin + ":");
         }
 
@@ -278,25 +278,24 @@ namespace CSintetizador
 
         private void GenerarAnd(string izquierda, string derecha)
         {
-            GenerarCodigo($"LDA {izquierda}");
-            GenerarCodigo("MOVD");
+            GenerarCodigo($"LOAD {izquierda}");
+            GenerarCodigo("MOV");
             GenerarCodigo("NOP");
-            GenerarCodigo($"NAND {derecha}");
+            GenerarCodigo($"AND {derecha}");
         }
 
         private void GenerarOr(string izquierda, string derecha)
         {
-            GenerarCodigo($"LDA {izquierda}");
-            GenerarCodigo("MOVD");
+            GenerarCodigo($"LOAD {izquierda}");
+            GenerarCodigo("MOV");
             GenerarCodigo("NOP");
-            GenerarCodigo($"LDA {derecha}");
-            GenerarCodigo("NAND D");
+            GenerarCodigo($"OR {derecha}");
         }
 
         private void GenerarNot(string valor)
         {
-            GenerarCodigo($"LDA {valor}");
-            GenerarCodigo("NAND A");
+            GenerarCodigo($"LOAD {valor}");
+            GenerarCodigo("XOR A");
         }
 
         private string GenerarEtiqueta()
