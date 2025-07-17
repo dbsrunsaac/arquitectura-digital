@@ -7,7 +7,6 @@ using QuickGraph.Graphviz;
 using AnalizadorLexico; // Scanner -> Genera Tokens
 using AnalizadorSintactico; // Parse -> Genera el AST
 using AnalizadorSemantico; // Verifica el código
-
 using CSintetizador; // Estructura del código ASM
 using CGenCPU; // Genera el código BIN
 

@@ -21,5 +21,10 @@ namespace CLETI
                 TxtToken.AppendText($"{token.Item1}: {token.Item2}\n");
             }
         }
+
+        private void TxtToken_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
