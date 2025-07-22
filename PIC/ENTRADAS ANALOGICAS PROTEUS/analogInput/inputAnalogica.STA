@@ -1,0 +1,49 @@
+
+ROM used:   148/8192 (2%)
+            148/8192 (2%) including unused fragments
+
+            0.2 Average locations per line
+            12.3 Average locations per statement
+
+RAM used:   10/368 (3%) at main() level
+            12/368 (3%) worst case
+
+Stack used: 0 worst case (0 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   38    12 100  inputAnalogica.c
+  708     0   0  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h
+----- -----
+  746    12 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     20  14    1             @delay_ms1
+0     93  63    0    253  2.8  main
+0     31  21    2             @ITOF
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               1
+    Statements              12
+    Comments                150
+    Volume (V)              259
+    Difficulty (D)          2.5
+    Effort to implement (E) 639
+    Time to implement (T)   1 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    108
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   144  1900  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

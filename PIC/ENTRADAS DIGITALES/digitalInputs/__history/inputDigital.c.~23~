@@ -1,0 +1,47 @@
+#include <16F877A.h>
+#fuses hs, nowdt
+#use delay(clock = 4M)
+#include <lcd.c>
+
+/*
+# define lcd_rs_pin     pin_b0   // esto es en caso de que yo quiero especificar los pines que yo quiero utilizar
+# define lcd_rw_pin     pin_b1
+# define lcd_enable_pin pin_b2
+# define lcd_data4      pin_b4
+# define lcd_data5      pin_b5
+# define lcd_data6      pin_b6
+# define lcd_data7      pin_b7
+*/
+
+void main(){
+   set_tris_d(0); // Definir el puerto D como salida
+   set_tris_b(1); // Definir el puerto B como entrada
+   
+   // Inicializar el uso del LCD
+   lcd_init(); 
+   
+   unsigned char texto[6];
+   
+   while(true){
+      char numero;
+      numero = input_b();
+      sprintf(texto, "%d", numero);
+      
+      // Mostrar en la 1ra fila
+      lcd_gotoxy(1, 1);
+      printf(lcd_putc, "Resultado: ");
+      
+      // Mostrar en la 2da fila
+      lcd_gotoxy(1, 2);
+      printf(lcd_putc, texto);
+      
+      // Retardo de 0.5s
+      delay_ms(1000); 
+      
+      //Limpiar el LCD
+      lcd_putc("\f");
+      
+   }
+   
+   return;
+}

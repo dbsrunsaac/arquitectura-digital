@@ -1,0 +1,46 @@
+[PROJECT]
+Target=inputDigital.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.112
+Compiler=PCM
+[Target Data]
+FileList=inputDigital.c
+[inputDigital.c]
+Type=4
+[mru-list]
+1=inputDigital.c
+
+[defines]
+buildcount=6
+
+[ProjectLog]
+Days=1
+D1=22-07-2025
+D1_L=13
+D1_L1=[45546]Started Editing.
+D1_L2=[45846]Stopped Editing.
+D1_L3=[47104]Started Editing.
+D1_L4=[47575]Stopped Editing.
+D1_L5=[49523]Started Editing.
+D1_L6=[50388]Stopped Editing.
+D1_L7=[50533]Started Editing.
+D1_L8=[50891]Stopped Editing.
+D1_L9=[51701]Started Editing.
+D1_L10=[52003]Stopped Editing.
+D1_L11=[52480]Started Editing.
+D1_L12=[53140]Stopped Editing.
+TotalEdit=20
+TotalDebug=0
+D1_E=20
+D1_D=0
+D1_L13=[53981]Project Closed.
+
+[Opened Files]
+1=inputDigital.c
+t1=25
+2=..\..\LCD PROTEUS\lcdPIC\mensaje_LCD.c
+t2=5
+Count=2
+[Units]
+Count=1
+1=inputDigital (main)

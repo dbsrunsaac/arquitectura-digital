@@ -1,0 +1,29 @@
+#include <16F877A.h>
+#fuses hs, nowdt
+#use delay(clock = 4M)
+#include <lcd.c>
+
+/*
+# define lcd_rs_pin     pin_b0   // esto es en caso de que yo quiero especificar los pines que yo quiero utilizar
+# define lcd_rw_pin     pin_b1
+# define lcd_enable_pin pin_b2
+# define lcd_data4      pin_b4
+# define lcd_data5      pin_b5
+# define lcd_data6      pin_b6
+# define lcd_data7      pin_b7
+*/
+
+void main(){
+   // set_tris_d(0);
+   lcd_init();
+   char texto[10];
+   
+   while(true){
+      char numero;
+      numero = PORTB;
+      sprintf(texto, "%d", numero);
+      delay_ms(500);
+   }
+   
+   return;
+}

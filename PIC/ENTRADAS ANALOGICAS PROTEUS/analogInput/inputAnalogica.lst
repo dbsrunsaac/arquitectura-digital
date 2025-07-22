@@ -1,0 +1,217 @@
+CCS PCM C Compiler, Version 5.112, 5967               22-Jul.-25 12:37
+
+               Filename:   C:\Users\Bremdows\UNSAAC\SEMESTRE VIII\ARQUITECTURA DE MICROCONTROLADORES Y MICROPROCESADORES\arquitectura-digital\PIC\ENTRADAS ANALOGICAS PROTEUS\analogInput\inputAnalogica.lst
+
+               ROM used:   148 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   10 (3%) at main() level
+                           12 (3%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   037
+0003:  NOP
+.................... /* 
+....................                 CREADO POR      :{==[=======>>>> ELECTROALL <<<<<=======]==}
+....................                 INSTAGRAM       : https://www.instagram.com/carlos_j_fuentess/
+....................                                   ó  @carlos_j_fuentess
+....................                 FACEBOOK        : https://web.facebook.com/ELECTROALL.ELECTRONICA/?_rdc=1&_rdr
+....................                 PÁGINA WEB      : https://www.electroallweb.com/
+....................                 YOUTUBE         : https://www.youtube.com/c/ELECTROALL
+....................            ________________________________________________________
+....................              {==[=======> (ENTRADA & SALIDA ANALÓGICA) <=======]==}
+....................            ________________________________________________________
+.................... */
+.................... 
+.................... # include <16f877a.h>             //incluimos el codigo del pic
+.................... //////////// Standard Header file for the PIC16F877A device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC16F877A
+*
+0018:  MOVLW  8E
+0019:  MOVWF  77
+001A:  MOVF   26,W
+001B:  MOVWF  78
+001C:  MOVF   25,W
+001D:  MOVWF  79
+001E:  CLRF   7A
+001F:  MOVF   78,F
+0020:  BTFSS  03.2
+0021:  GOTO   02C
+0022:  MOVF   79,W
+0023:  MOVWF  78
+0024:  CLRF   79
+0025:  MOVLW  08
+0026:  SUBWF  77,F
+0027:  MOVF   78,F
+0028:  BTFSS  03.2
+0029:  GOTO   02C
+002A:  CLRF   77
+002B:  GOTO   034
+002C:  BCF    03.0
+002D:  BTFSC  78.7
+002E:  GOTO   033
+002F:  RLF    79,F
+0030:  RLF    78,F
+0031:  DECF   77,F
+0032:  GOTO   02C
+0033:  BCF    78.7
+0034:  BCF    0A.3
+0035:  BCF    0A.4
+0036:  GOTO   070 (RETURN)
+.................... 
+.................... #list
+.................... 
+.................... # device adc=8                    //Habilitamos el disppositivos a 8bits
+.................... # fuses hs, wdt, brownout,NOWDT   //incluimos los fusibles necesarios
+.................... # use delay (clock = 8M)          //usamos reloj de 8Mhz
+*
+0004:  MOVLW  25
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   017
+000A:  MOVLW  02
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  97
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  DECFSZ 00,F
+0016:  GOTO   00A
+0017:  RETURN
+.................... 
+.................... # use standard_io (a,b,c,d)       //usamos la configuracion estandar
+.................... float  bits_analog;               
+.................... 
+.................... void main (){
+*
+0037:  MOVF   03,W
+0038:  ANDLW  1F
+0039:  MOVWF  03
+003A:  MOVLW  FF
+003B:  MOVWF  24
+003C:  BSF    03.5
+003D:  BSF    1F.0
+003E:  BSF    1F.1
+003F:  BSF    1F.2
+0040:  BCF    1F.3
+0041:  MOVLW  07
+0042:  MOVWF  1C
+0043:  BCF    03.7
+.................... 
+.................... setup_adc_ports (AN0_AN1_AN3);  // habilitamos los puetos analogicos
+0044:  BCF    1F.0
+0045:  BCF    1F.1
+0046:  BSF    1F.2
+0047:  BCF    1F.3
+.................... setup_adc(adc_clock_div_16);   // habilitamos los puetos analogicos
+0048:  BSF    1F.6
+0049:  BCF    03.5
+004A:  BSF    1F.6
+004B:  BCF    1F.7
+004C:  BSF    03.5
+004D:  BCF    1F.7
+004E:  BCF    03.5
+004F:  BSF    1F.0
+.................... setup_ccp1(CCP_PWM);           // habilitamos el puerto ccp1 del pic
+0050:  BCF    24.2
+0051:  MOVF   24,W
+0052:  BSF    03.5
+0053:  MOVWF  07
+0054:  BCF    03.5
+0055:  BCF    07.2
+0056:  MOVLW  0C
+0057:  MOVWF  17
+.................... setup_timer_2(T2_DIV_BY_16, 255,1); // usamos el timer2 
+0058:  MOVLW  00
+0059:  MOVWF  78
+005A:  IORLW  06
+005B:  MOVWF  12
+005C:  MOVLW  FF
+005D:  BSF    03.5
+005E:  MOVWF  12
+....................       while (true){
+.................... 
+....................       set_adc_channel(0);    
+005F:  MOVLW  00
+0060:  MOVWF  78
+0061:  BCF    03.5
+0062:  MOVF   1F,W
+0063:  ANDLW  C7
+0064:  IORWF  78,W
+0065:  MOVWF  1F
+....................       delay_ms (2);                  // Selecciono el canal 0 (RA0)
+0066:  MOVLW  02
+0067:  MOVWF  25
+0068:  CALL   004
+....................       bits_analog = read_adc();     
+0069:  BSF    1F.2
+006A:  BTFSC  1F.2
+006B:  GOTO   06A
+006C:  MOVF   1E,W
+006D:  CLRF   26
+006E:  MOVWF  25
+006F:  GOTO   018
+0070:  MOVF   7A,W
+0071:  MOVWF  23
+0072:  MOVF   79,W
+0073:  MOVWF  22
+0074:  MOVF   78,W
+0075:  MOVWF  21
+0076:  MOVF   77,W
+0077:  MOVWF  20
+....................        delay_ms (2);
+0078:  MOVLW  02
+0079:  MOVWF  25
+007A:  CALL   004
+....................       set_pwm1_duty (bits_analog);  // manifestamos los valores de AN0 en cc_pwm)
+007B:  MOVF   21,W
+007C:  MOVWF  79
+007D:  MOVF   20,W
+007E:  MOVWF  78
+007F:  RRF    79,F
+0080:  RRF    78,F
+0081:  RRF    79,F
+0082:  RRF    78,F
+0083:  RRF    79,F
+0084:  MOVF   78,W
+0085:  MOVWF  15
+0086:  RRF    79,F
+0087:  RRF    79,W
+0088:  ANDLW  30
+0089:  MOVWF  77
+008A:  MOVF   17,W
+008B:  ANDLW  CF
+008C:  IORWF  77,W
+008D:  MOVWF  17
+....................        delay_ms (2);
+008E:  MOVLW  02
+008F:  MOVWF  25
+0090:  CALL   004
+0091:  BSF    03.5
+0092:  GOTO   05F
+.................... 
+....................       }
+.................... }
+0093:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F72   HS NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

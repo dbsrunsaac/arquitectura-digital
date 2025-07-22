@@ -1,0 +1,32 @@
+[PROJECT]
+Target=inputAnalogica.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.112
+Compiler=PCM
+[Target Data]
+FileList=inputAnalogica.c
+[inputAnalogica.c]
+Type=4
+[mru-list]
+1=inputAnalogica.c
+
+[defines]
+buildcount=2
+
+[ProjectLog]
+Days=1
+D1=22-07-2025
+D1_L=3
+D1_L1=[42659]Stopped Editing.
+D1_L2=[45227]Started Editing.
+D1_L3=[45518]Project Closed.
+
+[Opened Files]
+1=..\..\ENTRADAS DIGITALES\digitalInputs\inputDigital.c
+t1=1
+2=..\..\LCD PROTEUS\lcdPIC\mensaje_LCD.c
+t2=1
+Count=2
+[Units]
+Count=1
+1=inputAnalogica (main)

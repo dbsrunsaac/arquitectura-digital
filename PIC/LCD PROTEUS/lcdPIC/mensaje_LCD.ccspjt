@@ -1,0 +1,32 @@
+[PROJECT]
+Target=mensaje_LCD.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.112
+Compiler=PCM
+[Target Data]
+FileList=mensaje_LCD.c
+[mensaje_LCD.c]
+Type=4
+[mru-list]
+1=mensaje_LCD.c
+
+[defines]
+buildcount=8
+
+[ProjectLog]
+Days=1
+D1=22-07-2025
+D1_L=3
+D1_L1=[36988]Stopped Editing.
+D1_L2=[41346]Started Editing.
+D1_L3=[41715]Project Closed.
+
+[Opened Files]
+1=mensaje_LCD.c
+t1=20
+2=..\ENTRADAS ANALOGICAS PROTEUS\analogicas_cpp\analogicas.c
+t2=20
+Count=2
+[Units]
+Count=1
+1=mensaje_LCD (main)
